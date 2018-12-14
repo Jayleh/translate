@@ -9,15 +9,15 @@ class Button extends Component {
   // Button.contextType = LanguageContext;
   // static contextType = LanguageContext;
 
-  renderSubmit(value) {
-    return value === 'english' ? 'Submit' : 'Voorleggen';
+  renderSubmit(language) {
+    return language === 'english' ? 'Submit' : 'Voorleggen';
   }
 
   renderButton(color) {
     return (
       <button className={`ui button ${color}`}>
         <LanguageContext.Consumer>
-          {value => this.renderSubmit(value)}
+          {({ language }) => this.renderSubmit(language)}
         </LanguageContext.Consumer>
       </button>
     );
